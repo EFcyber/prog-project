@@ -1,6 +1,7 @@
 ---
 layout: home
 title: Introduction
+nav_order: 1
 has_children: false
 ---
 # Programming Project
