@@ -1,0 +1,7 @@
+Error Int	Error Type
+
+1		Authentication error
+2		Cannot retrieve file of that date
+3		Unable to download file
+4		File cannot be downloaded to current working directory
+5		Cannot connect to FTP server
