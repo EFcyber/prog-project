@@ -35,6 +35,7 @@ def ftp_file_download(ip_addr, user, passwd, date):
                         # Download contents of ftp file to the local file
                         ftp.retrlines("RETR " + server_file, temp_file.write)
                         ftp.quit()
+                        return temp_file
                     except:
                         print("ERROR: Unable to retrieve file.")
                         return 3
@@ -44,4 +45,3 @@ def ftp_file_download(ip_addr, user, passwd, date):
     except:
         print("ERROR: Cannot connect to FTP server.")
         return 5
-    return temp_file
