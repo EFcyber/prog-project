@@ -2,11 +2,12 @@ from ftplib import FTP
 
 def get_file_name(ftp,date):
     
-    dir_contents = ftp.retrlines('LIST')
+    dir_contents = ftp.nlst()
     for med_file in dir_contents:
         if (date.replace("/","")) in med_file:
             file_name = med_file
     return file_name
+
 
 def ftp_file_download(ip_addr, user, passwd, date):
     
@@ -33,6 +34,7 @@ def ftp_file_download(ip_addr, user, passwd, date):
                     try:
                         # Download contents of ftp file to the local file
                         ftp.retrlines("RETR " + server_file, temp_file.write)
+                        ftp.quit()
                     except:
                         print("ERROR: Unable to retrieve file.")
                         return 3
@@ -42,5 +44,4 @@ def ftp_file_download(ip_addr, user, passwd, date):
     except:
         print("ERROR: Cannot connect to FTP server.")
         return 5
-    
     return temp_file
